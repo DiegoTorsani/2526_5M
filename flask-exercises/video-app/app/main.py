@@ -49,8 +49,8 @@ def create_channel():
             # Creiamo il canale
             channel_repository.create_channel(nome, numero_iscritti, categoria)
             return redirect(url_for("main.index"))
-
-    return render_template("create_channel.html")
+    categorie_list = category_repository.get_all_categories()
+    return render_template("create_channel.html", categories=categorie_list)
 
 
 @bp.route("/create_video", methods=("GET", "POST"))
@@ -96,4 +96,7 @@ def create_category():
             category_repository.create_category(nome)
             return redirect(url_for("main.index"))
 
-    return render_template("create_category.html")
+@bp.route("/get_all_categories")
+def get_all_categories():
+    categories = category_repository.get_all_categories()
+    return render_template("get_all_categoryes.html", categories=categories)

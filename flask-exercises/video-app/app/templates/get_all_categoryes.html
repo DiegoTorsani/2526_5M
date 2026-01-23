@@ -1,0 +1,12 @@
+s{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tutte le Categorie</h1>
+<form method="post">
+    <ul>
+        {% for category in categories %}
+            <li>{{ category['nome'] }}</li>
+        {% endfor %}
+    </ul>
+</form>
+{% endblock %}

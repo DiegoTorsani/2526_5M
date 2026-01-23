@@ -7,7 +7,11 @@
     <input name="nome" id="nome" required>
 
     <label for="categoria">Categoria</label>
-    <input name="categoria" id="categoria" required>
+    <select name="categoria" id="categoria" required>
+        {% for category in categories %}
+            <option value="{{ category['id'] }}">{{ category['nome'] }}</option>
+        {% endfor %}
+    </select>
 
     <label for="numero_iscritti">Numero Iscritti</label>
     <input name="numero_iscritti" id="numero_iscritti" type="number" value="0">

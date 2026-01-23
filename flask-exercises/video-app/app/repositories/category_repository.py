@@ -10,3 +10,9 @@ def create_category(nome: str):
     )
     db.commit()
     return cursor.lastrowid
+
+def get_all_categories():
+    """Recupera tutte le categorie."""
+    db = get_db()
+    categories = db.execute("SELECT * FROM categoria").fetchall()
+    return categories
